@@ -1,12 +1,21 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './App.css'
 
 function App() {
+  const [message, setMessage] = useState("");
   const [likes, setLikes] = useState(0);
+  const [color, setColor] = useState('red');
 
-  const sendMessage = () => {
-    alert(`Hello from React!`)
-  };
+  {/*Message Logger */}
+  useEffect(() => {
+    if(message){
+      console.log(`Message logged: ${message}`);
+    }
+  }, [message])
+
+  const sendMessage = () =>{
+    alert('Hello from React!')
+  }
 
 
     return (
@@ -16,20 +25,10 @@ function App() {
           <div>
             <h2>Message Logger </h2>
               <button 
-              type='submit'
+              type='button'
               onClick={sendMessage}>
                 Send Message
               </button>
-          </div>
-  
-          {/*Like Counter */}
-          <div>
-            <h2>Like Counter</h2>
-            <button
-            type='submit'
-            >
-              Likes
-            </button>
           </div>
         </div>
       </>
